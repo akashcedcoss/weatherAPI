@@ -19,12 +19,6 @@ class WeatherController extends Controller
     public function getCityAction()
     { 
         $cityname = $this->request->getPost('name');
-        // $client = new Client([
-        //     'base_uri' => 'http://api.weatherapi.com/v1/current.json?key=0bab7dd1bacc418689b143833220304&q='.$cityname.'&aqi=no',]);
-        // $response = $client->request('GET');
-        // $data = $response->getBody();
-        // $city = json_decode($data);
-        // $this->view->city = $city;
     }
     public function tempDetailsAction()
     { 
@@ -113,6 +107,14 @@ class WeatherController extends Controller
         $this->view->current = $current;
     }
     public function alertsAction() {
-        echo "No data found";
+        // echo "No data found";
+        $city = $this->request->getPost('city');
+        $btn = $this->request->getPost('name');
+        $date = date("Y-m-d");
+        $client = new Client(['base_uri' => 'http://api.weatherapi.com/v1/forecast.json?key=0bab7dd1bacc418689b143833220304&q='.$city.'&days=1&aqi=no&alerts=yes',]);
+        $response = $client->request('GET');
+        $data = $response->getBody();
+        $current = json_decode($data);
+        $this->view->alerts = $current;
     }
 }
