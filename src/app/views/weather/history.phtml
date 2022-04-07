@@ -1,0 +1,27 @@
+<?php
+
+$history = $current->forecast->forecastday[0]->hour;
+$img = $current->forecast->forecastday[0]->day->condition->icon;
+$name = $current->location->name;
+
+?>
+<?php
+if (isset($current)) { ?>
+<form action="history" method="post">
+  <?php foreach($history as $key) { ?>
+<div class="d-flex my-4 border p-3">
+  <img class="card-img-top" style="width: 14rem; height: 16rem" src="<?php echo $img; ?>" alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text"><b>City: </b>&nbsp;<?php echo $name; ?></p>
+    <p class="card-text"><b>Time: </b>&nbsp;<?php echo $key->time; ?></p>
+    <p class="card-text"><b>Temperature(C): </b>&nbsp;<?php echo $key->temp_c; ?></p>
+    <p class="card-text"><b>Wind Speed(kph): </b>&nbsp;<?php echo $key->wind_kph; ?></p>
+    <p class="card-text"><b>Humidity: </b>&nbsp;<?php echo $key->humidity; ?></p>
+
+</div>
+</div>
+<?php } ?>
+</form>
+<?php
+}
+?>

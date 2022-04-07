@@ -1,0 +1,15 @@
+<?php
+
+?>
+<?php echo $this->tag->form("weather/forecast"); ?>
+    
+    <p>
+        <label for="days"></label>
+        <?php echo $this->tag->textField("days"); ?>
+    </p>
+    <input type="hidden" name="city" value="<?php echo $city; ?>">
+    <p>
+        <?php echo $this->tag->submitButton(["Search", 'name'=>'searchbtn']); ?>
+    </p>
+
+</form>

@@ -1,0 +1,26 @@
+<?php
+
+$data = $air->current->air_quality;
+$name = $air->location->name;
+$img = $air->current->condition->icon;
+
+?>
+<?php
+if (isset($air)) { ?>
+<form action="airquality" method="post">
+<div class="d-flex my-4 border p-3">
+  <img class="card-img-top" style="width: 14rem; height: 16rem" src="<?php echo $img; ?>" alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text"><b>City: </b>&nbsp;<?php echo $name; ?></p>
+    <p class="card-text"><b>CO: </b>&nbsp;<?php echo $data->co; ?></p>
+    <p class="card-text"><b>NO2: </b>&nbsp;<?php echo $data->no2; ?></p>
+    <p class="card-text"><b>o3: </b>&nbsp;<?php echo $data->o3; ?></p>
+    <p class="card-text"><b>So2: </b>&nbsp;<?php echo $data->so2; ?></p>
+    <p class="card-text"><b>pm2_5: </b>&nbsp;<?php echo $data->pm2_5; ?></p>
+    <p class="card-text"><b>pm10: </b>&nbsp;<?php echo $data->pm10; ?></p>
+</div>
+</div>
+</form>
+<?php
+}
+?>

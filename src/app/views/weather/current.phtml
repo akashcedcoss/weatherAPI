@@ -1,0 +1,26 @@
+<?php
+
+$data = $current->current;
+$name = $current->location->name;
+$img = $current->current->condition->icon;
+
+?>
+<?php
+if (isset($current)) { ?>
+<form action="current" method="post">
+<div class="d-flex my-4 border p-3">
+  <img class="card-img-top" style="width: 14rem; height: 16rem" src="<?php echo $img; ?>" alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text"><b>City: </b>&nbsp;<?php echo $name; ?></p>
+    <p class="card-text"><b>Temperature: </b>&nbsp;<?php echo $data->temp_c; ?></p>
+    <p class="card-text"><b>Wind Speed (kph): </b>&nbsp;<?php echo $data->wind_kph; ?></p>
+    <p class="card-text"><b>Wind Direction: </b>&nbsp;<?php echo $data->wind_dir; ?></p>
+    <p class="card-text"><b>Pressure: </b>&nbsp;<?php echo $data->pressure_mb; ?></p>
+    <p class="card-text"><b>Pressure-IN: </b>&nbsp;<?php echo $data->pressure_in; ?></p>
+    <p class="card-text"><b>Cloud: </b>&nbsp;<?php echo $data->cloud; ?></p>
+</div>
+</div>
+</form>
+<?php
+}
+?>

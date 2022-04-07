@@ -1,0 +1,27 @@
+<?php
+
+$data = $sports->football;
+
+?>
+<?php
+if (isset($sports)) { ?>
+
+<?php foreach($sports as $key){ ?>
+ <?php foreach($key as $val){ ?>
+
+<form action="sports" method="post">
+<div class="d-flex my-4 border p-3">
+  <div class="card-body">
+    <p class="card-text"><b>Stadium: </b>&nbsp;<?php echo $val->stadium."<br>"; ?></p>
+    <p class="card-text"><b>Country: </b>&nbsp;<?php echo $val->country."<br>"; ?></p>
+    <p class="card-text"><b>Tournament: </b>&nbsp;<?php echo $val->tournament."<br>"; ?></p>
+    <p class="card-text"><b>Match: </b>&nbsp;<?php echo $val->match."<br>"; ?></p>
+    <p class="card-text"><b>Start: </b>&nbsp;<?php echo $val->start."<br>"; ?></p>
+
+</div>
+</div>
+</form>
+<?php }} ?>
+<?php
+}
+?>

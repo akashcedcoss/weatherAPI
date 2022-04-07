@@ -1,0 +1,15 @@
+<h1> Search Weather </h1>
+<?php echo $this->tag->form("weather/tempDetails"); ?>
+    
+        <p>
+            <label for="name"></label>
+            <?php echo $this->tag->textField("name"); ?>
+        </p>
+        <p>
+            <?php echo $this->tag->submitButton(["Search", 'name'=>'searchbtn']); ?>
+        </p>
+    
+    </form>
+
+
+

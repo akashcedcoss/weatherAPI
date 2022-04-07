@@ -1,0 +1,24 @@
+<?php
+
+$data = $astronomy->astronomy->astro;
+$name = $astronomy->location->name;
+
+?>
+<?php
+if (isset($astronomy)) { ?>
+<form action="astronomy" method="post">
+<div class="d-flex my-4 border p-3">
+  <div class="card-body">
+    <p class="card-text"><b>City: </b>&nbsp;<?php echo $name; ?></p>
+    <p class="card-text"><b>Sunrise: </b>&nbsp;<?php echo $data->sunrise; ?></p>
+    <p class="card-text"><b>Sunset: </b>&nbsp;<?php echo $data->sunset; ?></p>
+    <p class="card-text"><b>Moonrise: </b>&nbsp;<?php echo $data->moonrise; ?></p>
+    <p class="card-text"><b>Moonset: </b>&nbsp;<?php echo $data->moonset; ?></p>
+    <p class="card-text"><b>Moon Phase: </b>&nbsp;<?php echo $data->moon_phase; ?></p>
+    <p class="card-text"><b>Moon Illumination: </b>&nbsp;<?php echo $data->moon_illumination; ?></p>
+</div>
+</div>
+</form>
+<?php
+}
+?>

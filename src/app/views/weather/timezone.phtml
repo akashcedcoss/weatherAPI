@@ -1,0 +1,23 @@
+<?php
+
+$name = $timezone->location->name;
+$zoneid = $timezone->location->tz_id;
+$localtimeep = $timezone->location->localtime_epoch;
+$local = $timezone->location->localtime;
+
+?>
+<?php
+if (isset($timezone)) { ?>
+<form action="timezone" method="post">
+<div class="d-flex my-4 border p-3">
+  <div class="card-body">
+    <p class="card-text"><b>City: </b>&nbsp;<?php echo $name; ?></p>
+    <p class="card-text"><b>Time Zone: </b>&nbsp;<?php echo $zoneid; ?></p>
+    <p class="card-text"><b>EPOCH Local Time: </b>&nbsp;<?php echo $localtimeep; ?></p>
+    <p class="card-text"><b>Local Time: </b>&nbsp;<?php echo $local; ?></p>
+</div>
+</div>
+</form>
+<?php
+}
+?>

@@ -1,0 +1,84 @@
+<?php
+
+
+$img = $city->current->condition->icon;
+$name = $city->location->name;
+$region = $city->location->region;
+$country = $city->location->country;
+$lat = $city->location->lat;
+$lon = $city->location->lon;
+$zone = $city->location->tz_id;
+$localtime = $city->location->localtime;
+$celsius = $city->current->temp_c;
+$fahrenheit = $city->current->temp_f;
+$lastupdate = $city->current->last_updated;
+
+
+?>
+
+<?php
+if (isset($img)) { ?>
+<form action="index" method="post">
+<div class="d-flex my-4 border p-3">
+  <img class="card-img-top" style="width: 14rem; height: 16rem" src="<?php echo $img; ?>" alt="Card image cap">
+  <div class="card-body">
+    <input type="hidden" name="city" value="<?php echo $name; ?>">
+    <input type="hidden" name="">
+    <p class="card-text"><b>City: </b>&nbsp;<?php echo $name; ?></p>
+    <p class="card-text"><b>Region: </b>&nbsp;<?php echo $region; ?></p>
+    <p class="card-text"><b>Country: </b>&nbsp;<?php echo $country; ?></p>
+    <p class="card-text"><b>Temperature in C: </b>&nbsp;<?php echo $celsius; ?></p>
+    <p class="card-text"><b>Temperature in F: </b>&nbsp;<?php echo $fahrenheit; ?></p>
+    <p class="card-text"><b>Latitude: </b>&nbsp;<?php echo $lat; ?></p>
+    <p class="card-text"><b>Longitude: </b>&nbsp;<?php echo $lon; ?></p>
+    <p class="card-text"><b>Zone: </b>&nbsp;<?php echo $zone; ?></p>
+    <p class="card-text"><b>Local Time: </b>&nbsp;<?php echo $localtime; ?></p>
+    <p class="card-text"><b>Last Update: </b>&nbsp;<?php echo $lastupdate; ?></p>
+</div>
+</div>
+</form>
+<?php
+}
+?>
+<div class="d-flex mx-2 p-3">
+<form action="/weather/forecast" method="post">
+    <input type="submit" value="Forecast" class="btn btn-primary mx-2" name="name">
+    <input type="hidden" name="city" value="<?php echo $name; ?>">
+
+</form>
+<form action="/weather/history" method="post">
+    <input type="submit" value="History" class="btn btn-primary mx-2" name="name">
+    <input type="hidden" name="city" value="<?php echo $name; ?>">
+
+</form>
+<form action="/weather/timezone" method="post">
+    <input type="submit" value="Time Zone" class="btn btn-primary mx-2" name="name">
+    <input type="hidden" name="city" value="<?php echo $name; ?>">
+
+</form>
+<form action="/weather/sports" method="post">
+    <input type="submit" value="Sports" class="btn btn-primary mx-2" name="name">
+    <input type="hidden" name="city" value="<?php echo $name; ?>">
+
+</form>
+<form action="/weather/astronomy" method="post">
+    <input type="submit" value="Astronomy" class="btn btn-primary mx-2" name="name">
+    <input type="hidden" name="city" value="<?php echo $name; ?>">
+
+</form>
+<form action="/weather/alerts" method="post">
+    <input type="submit" value="Weather Alerts" class="btn btn-primary mx-2" name="name">
+    <input type="hidden" name="city" value="<?php echo $name; ?>">
+
+</form>
+<form action="/weather/airquality" method="post">
+    <input type="submit" value="Air Quality" class="btn btn-primary mx-2" name="name">
+    <input type="hidden" name="city" value="<?php echo $name; ?>">
+
+</form>
+<form action="/weather/current" method="post">
+    <input type="submit" value="Current" class="btn btn-primary mx-2" name="name">
+    <input type="hidden" name="city" value="<?php echo $name; ?>">
+</form>
+</div>
+
